@@ -15,7 +15,6 @@ import androidx.compose.material.Card
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -61,33 +60,22 @@ class HomeScreen : Screen {
         val cardModifier  = Modifier
             .padding(horizontal = 20.dp, vertical = 4.dp)
             .size(width = 400.dp, height = 60.dp)
-        Scaffold(
-            topBar = {
-                TopAppBar (
-                    backgroundColor = _root_ide_package_.androidx.compose.ui.graphics.Color(0x00000000),
-                    contentColor = _root_ide_package_.androidx.compose.ui.graphics.Color(0x00000000),
-                   title =  {
-                       Text("Lentera Istiqomah",
-                           modifier = Modifier.padding(vertical = 26.dp),
-                           style = TextStyle(
-                               fontWeight = FontWeight.W600,
-                               fontSize = 18.sp,
-                               color = _root_ide_package_.androidx.compose.ui.graphics.Color(0xffFFFFFF)
-                           ))
-                   },
-                    navigationIcon = {
-                        Image(
-                            painter = androidx.compose.ui.res.painterResource(id = R.mipmap.logo_lentera_foreground  ),
-                            contentDescription =  "",
-                        )
-                    }
-                )
-            },
+        Surface(
             modifier = Modifier
                 .size(width = 440.dp, height = 780.dp),
-            color = _root_ide_package_.androidx.compose.ui.graphics.Color(0xff359D59),
+            color = _root_ide_package_.androidx.compose.ui.graphics.Color(0xff359D59)
         ) {
-
+//            TopAppBar (
+//                backgroundColor = _root_ide_package_.androidx.compose.ui.graphics.Color(0x00000000),
+//                contentColor = _root_ide_package_.androidx.compose.ui.graphics.Color(0x00000000),
+//                // color black
+//            ) {
+//                Image(
+//                    painter = androidx.compose.ui.res.painterResource(id = R.mipmap.logo_lentera_foreground  ),
+//                    contentDescription =  "",
+//                )
+//                Text("Lentera Istiqomah")
+//            }
             Column (
                 modifier = Modifier
                     .padding(12.dp)
