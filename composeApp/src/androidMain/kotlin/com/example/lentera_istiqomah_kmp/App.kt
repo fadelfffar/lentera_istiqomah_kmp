@@ -36,6 +36,7 @@ fun App() {
     androidx.compose.material3.Scaffold(
         // TODO: figure out why changing Scaffold background color using containerColor does not work
 //        containerColor = Color(0xff359D59),
+        contentColor = Color(0xff359D59),
         topBar = {
             MainTopAppBar()
         },

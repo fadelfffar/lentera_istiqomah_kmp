@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.implementation
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -23,6 +24,7 @@ kotlin {
     
     sourceSets {
         
+        //noinspection WrongGradleMethod
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -53,6 +55,11 @@ kotlin {
             // Material 3 Compose
             implementation(compose.material3)
             implementation("androidx.navigation:navigation-compose:2.8.8")
+            // Import the BoM for the Firebase platform
+            implementation(project.dependencies.platform("com.google.firebase:firebase-bom:31.0.0"))
+
+            // Declare the dependency for the Firestore library
+            implementation(libs.firebase.firestore.ktx)
 
         }
     }
