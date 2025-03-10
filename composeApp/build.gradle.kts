@@ -50,6 +50,9 @@ kotlin {
             implementation("cafe.adriel.voyager:voyager-screenmodel:$voyagerVersion")
             // Koin integration
             implementation("cafe.adriel.voyager:voyager-koin:$voyagerVersion")
+            // Material 3 Compose
+            implementation(compose.material3)
+            implementation("androidx.navigation:navigation-compose:2.8.8")
 
         }
     }
@@ -83,6 +86,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.navigation.compose)
     debugImplementation(compose.uiTooling)
 }
 

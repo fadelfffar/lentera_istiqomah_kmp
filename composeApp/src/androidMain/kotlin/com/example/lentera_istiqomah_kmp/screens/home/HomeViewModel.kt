@@ -8,8 +8,5 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 
-class HomeViewModel(prayersRepository: PrayersRepository) : ScreenModel {
-    val objects: StateFlow<List<PrayersObject>> =
-        prayersRepository.getObjects()
-            .stateIn(screenModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+class HomeViewModel() : ScreenModel {
 }
