@@ -23,6 +23,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.lentera_istiqomah_kmp.screens.home.HomeScreen
+import com.example.lentera_istiqomah_kmp.screens.ramadan.RamadanScreen
 import com.example.lentera_istiqomah_kmp.screens.schedule.ScheduleScreen
 import com.example.lentera_istiqomah_kmp.screens.settings.SettingsScreen
 import com.example.lentera_istiqomah_kmp.utils.Constants
@@ -72,14 +73,19 @@ fun NavHostContainer(
                 HomeScreen()
             }
 
-            // route : search
+            // route : Schedule
             composable("schedule") {
                 ScheduleScreen()
             }
 
-            // route : profile
+            // route : Settings
             composable("settings") {
                 SettingsScreen()
+            }
+
+            // route : Ramadan
+            composable("ramadan") {
+                RamadanScreen()
             }
         })
 }
@@ -90,8 +96,8 @@ fun BottomNavBar(navController: NavHostController) {
     NavigationBar(
 
         // set background color
-        containerColor = Color(0xFF0F9D58)) {
-
+        containerColor = Color(0xff1A7149)) {
+//        0xffF9FCF2
         // observe the backstack
         val navBackStackEntry by navController.currentBackStackEntryAsState()
 

@@ -16,7 +16,6 @@ interface StorageService {
         val ashar =  query.whereEqualTo("ashar", true)
             .get()
     }
-
     fun removeListener()
     fun getPrayer(prayerId: String, onError: (Throwable) -> Unit, onSuccess: (PrayersObject) -> Unit)
 }

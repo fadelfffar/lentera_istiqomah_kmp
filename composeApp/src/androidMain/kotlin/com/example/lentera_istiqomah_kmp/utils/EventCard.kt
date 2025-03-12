@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,13 +27,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lentera_istiqomah_kmp.R
 
-@Preview
 @Composable
-fun EventCard() {
+fun EventCard(titleText: String, subtitleText: String) {
     Card(
         modifier = Modifier
             .padding(horizontal = 20.dp, vertical = 4.dp)
             .size(width = 400.dp, height = 60.dp),
+        colors = CardColors(
+            containerColor = Color(0xff359D59),
+            contentColor = Color(0xff359D59),
+            disabledContentColor = Color(0xff359D59),
+            disabledContainerColor = Color(0xff359D59),
+        ),
 //        colors =
 //        backgroundColor = _root_ide_package_.androidx.compose.ui.graphics.Color(
 //            0xffF9FCF2
@@ -55,12 +61,12 @@ fun EventCard() {
             Column(
             ) {
 //                Box(Modifier.height(8.dp))
-                Text("Setiap Senin Malam setelah sholat Maghrib",
-                    style = TextStyle(fontWeight = FontWeight.W400, fontSize = 12.sp
+                Text(titleText,
+                    style = TextStyle(fontWeight = FontWeight.W400, fontSize = 14.sp, color = Color(0xff778288)
                     )
                 )
-                Text("Tahsin Ikhwan",
-                    style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 16.sp
+                Text(subtitleText,
+                    style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Color(0xff474E52)
                     )
                 )
             }

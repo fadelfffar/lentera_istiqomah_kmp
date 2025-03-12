@@ -12,6 +12,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -20,12 +21,12 @@ import androidx.compose.ui.unit.sp
 import com.example.lentera_istiqomah_kmp.R
 
 @Composable
-fun PrayersCard() {
+fun PrayersCard(prayerNameText: String, prayerTime :String) {
     Card(
         modifier = Modifier
             .padding(horizontal = 20.dp, vertical = 4.dp)
             .size(width = 400.dp, height = 60.dp),
-        backgroundColor = _root_ide_package_.androidx.compose.ui.graphics.Color(
+        backgroundColor = Color(
             0xffF9FCF2
         ),
         elevation = 3.dp,
@@ -41,7 +42,7 @@ fun PrayersCard() {
             Divider(Modifier.width(12.dp))
             Column {
                 Text(
-                    text = "Isya",
+                    text = prayerNameText,
                     style = TextStyle(
                         color = _root_ide_package_.androidx.compose.ui.graphics.Color(
                             0xff778288
@@ -54,7 +55,7 @@ fun PrayersCard() {
                     textAlign = TextAlign.Left,
                 )
                 Text(
-                    text = "19:12",
+                    text = prayerTime,
                     style = TextStyle(
                         color = _root_ide_package_.androidx.compose.ui.graphics.Color(
                             0xff474E52

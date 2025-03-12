@@ -12,21 +12,24 @@ object Constants {
             label = "Beranda",
             route = "home",
             icon = Icons.Outlined.Home,
-
         ),
         // Search screen
         TopLevelRoute(
             label = "Acara Masjid",
             route = "schedule",
             icon = Icons.Outlined.DateRange,
-
+        ),
+        // Ramadan Screen
+        TopLevelRoute(
+            label = "Ramadan",
+            route = "ramadan",
+            icon = Icons.Outlined.DateRange
         ),
         // Profile screen
         TopLevelRoute(
             label = "Pengaturan",
             route = "settings",
             icon = Icons.Outlined.Settings,
-
         )
     )
 }
