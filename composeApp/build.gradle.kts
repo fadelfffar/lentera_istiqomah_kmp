@@ -30,6 +30,8 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation("io.ktor:ktor-client-android:$ktorVersion")
             implementation("androidx.compose.material:material:1.7.8")
+            implementation("com.google.firebase:perf-plugin:1.4.2")
+            implementation("com.google.gms:google-services:4.3.8")
         }
         commonMain.dependencies {
             implementation(project.dependencies.platform("io.insert-koin:koin-bom:$koin_version"))
@@ -60,6 +62,7 @@ kotlin {
 
             // Declare the dependency for the Firestore library
             implementation(libs.firebase.firestore.ktx)
+            implementation("com.google.gms:google-services:4.3.8")
 
         }
     }
@@ -95,5 +98,6 @@ android {
 dependencies {
     implementation(libs.androidx.navigation.compose)
     debugImplementation(compose.uiTooling)
+    implementation("com.google.gms:google-services:4.3.8")
 }
 
