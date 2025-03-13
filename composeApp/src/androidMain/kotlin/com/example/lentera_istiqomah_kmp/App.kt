@@ -4,33 +4,42 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Colors
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.*
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Yellow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.WorkRequest
+import com.example.lentera_istiqomah_kmp.notification.NotificationService
 import com.example.lentera_istiqomah_kmp.screens.home.HomeScreen
 import com.example.lentera_istiqomah_kmp.screens.ramadan.RamadanScreen
 import com.example.lentera_istiqomah_kmp.screens.schedule.ScheduleScreen
 import com.example.lentera_istiqomah_kmp.screens.settings.SettingsScreen
 import com.example.lentera_istiqomah_kmp.utils.Constants
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import java.util.concurrent.TimeUnit
 
-@Composable
 @Preview
+@Composable
 fun App() {
     val navController = rememberNavController()
 
@@ -59,30 +68,24 @@ fun NavHostContainer(
 
     NavHost(
         navController = navController,
-
-        // set the start destination as home
+        // Set the starting route / destinations
         startDestination = "home",
-
         // Set the padding provided by scaffold
         modifier = Modifier.padding(paddingValues = padding),
 
         builder = {
-
             // route : Home
             composable("home") {
                 HomeScreen()
             }
-
             // route : Schedule
             composable("schedule") {
                 ScheduleScreen()
             }
-
             // route : Settings
             composable("settings") {
                 SettingsScreen()
             }
-
             // route : Ramadan
             composable("ramadan") {
                 RamadanScreen()
@@ -105,21 +108,21 @@ fun BottomNavBar(navController: NavHostController) {
         // color,label color when navigated
         val currentRoute = navBackStackEntry?.destination?.route
 
-        // Bottom nav items we declared
+        // BottomNavItems definition
         Constants.BottomNavItems.forEach { navItem ->
 
-            // Place the bottom nav items
+            // Use the bottom Nav ITem
             NavigationBarItem(
 
-                // it currentRoute is equal then its selected route
+                // if currentRoute is equal then its selected route
                 selected = currentRoute == navItem.route,
 
-                // navigate on click
+                // Navigate to route when button is clicked
                 onClick = {
                     navController.navigate(navItem.route)
                 },
 
-                // Icon of navItem
+                // NavItem Icon definition
                 icon = {
                     Icon(imageVector = navItem.icon, contentDescription = navItem.label)
                 },
@@ -144,7 +147,7 @@ fun BottomNavBar(navController: NavHostController) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainTopAppBar(modifier: Modifier = Modifier) {
-    CenterAlignedTopAppBar(
+    TopAppBar(
         title = {
             Row {
                 Text(

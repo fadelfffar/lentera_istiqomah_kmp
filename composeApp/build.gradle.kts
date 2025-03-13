@@ -15,6 +15,7 @@ kotlin {
     val ktorVersion = "2.3.7"
     val koin_version= "4.1.0-Beta5"
     val voyagerVersion = "1.1.0-beta02"
+
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
@@ -23,7 +24,7 @@ kotlin {
     }
     
     sourceSets {
-        
+
         //noinspection WrongGradleMethod
         androidMain.dependencies {
             implementation(compose.preview)
@@ -32,6 +33,8 @@ kotlin {
             implementation("androidx.compose.material:material:1.7.8")
             implementation("com.google.firebase:perf-plugin:1.4.2")
             implementation("com.google.gms:google-services:4.3.8")
+            // Kotlin + coroutines
+            implementation("androidx.work:work-runtime-ktx:2.7.1")
         }
         commonMain.dependencies {
             implementation(project.dependencies.platform("io.insert-koin:koin-bom:$koin_version"))
@@ -98,6 +101,7 @@ android {
 dependencies {
     implementation(libs.androidx.navigation.compose)
     debugImplementation(compose.uiTooling)
-    implementation("com.google.gms:google-services:4.3.8")
+    implementation("com.google.gms:google-services:4.4.2")
+    implementation(libs.androidx.core.ktx)
 }
 
